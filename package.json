@@ -1,0 +1,23 @@
+{
+  "name": "multiplayergamewebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.15.3",
+    "handlebars": "^4.0.10",
+    "hbs": "^4.0.1",
+    "jsonwebtoken": "^7.4.1",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.27",
+    "mongoose": "^4.10.2",
+    "validator": "^7.0.0"
+  }
+}
