@@ -9,6 +9,7 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true,
       minlength: 5,
+      maxlength: 50,
       trim: true,
       unique: true,
       validate: {
@@ -20,6 +21,12 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true,
       minlength: 10
+    },
+    username: {
+      type: String,
+      required: true,
+      minlength: 1,
+      maxlength: 30
     },
     tokens: [{
       access: {
@@ -70,6 +77,25 @@ UserSchema.statics.findByToken = function(token) {
     'tokens.token': token,
     'tokens.access': 'auth'
   });
+};
+
+UserSchema.statics.findByCredentials = function(email, password) {
+    var User = this;
+
+    return User.findOne({email: email}).then(function(user){
+      if(!user) {
+        return Promise.reject();
+      }
+
+      return new Promise(function(resolve, reject){
+        bcrypt.compare(password, user.password, function(err, res) {
+          if(res){
+            resolve(user);
+          }
+          reject();
+        });
+      });
+    });
 };
 
 UserSchema.pre('save', function(next) {

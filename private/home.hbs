@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/main-styles.css">
+
+  <link rel="icon" href="favicon.ico" sizes="16x16" type="image/ico">
+
+  <!-- jQuery library -->
+  <script type="text/javascript"  src="../js/lib/jquery-3.2.1.min.js"></script>
+
+  <!-- BootStrap Library -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="../js/main-scripts.js"></script>
+
+  <script src="https://apis.google.com/js/platform.js"></script>
+
+  <script type="text/javascript">
+    var downloadGameAvaliable = false;
+
+    function onYtEvent(payload) {
+      if (payload.eventType == 'subscribe') {
+        downloadGameAvaliable = true;
+      } else if (payload.eventType == 'unsubscribe') {
+        downloadGameAvaliable = false;
+      }
+      if (window.console) { // for debugging only
+        window.console.log('YT event: ', payload);
+      }
+    }
+  </script>
+
+  <title>Home</title>
+</head>
+
+<body>
+
+  <div class="container-fluid" style="max-width: 1000px">
+    <div class="row">
+      <div class="col-xs-12 col-md-12" style="padding-left: 0px; padding-right: 0px">
+        <img src="../img/gamepreview.jpg" class="img-heading">
+        <div class="main-heading">
+          <h1 id="main-heading">
+              Multi-Game
+          </h1>
+          <h2 id="greeting">
+              What's up {{username}}
+          </h2>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 sblock">
+        <div style="text-align: center; padding: 10px">
+          <div style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 197px; height: 48px;" id="___ytsubscribe_3">
+            <iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 197px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 48px;" tabindex="0"
+              vspace="0" width="100%" id="I5_1496344564795" name="I5_1496344564795" src="https://www.youtube.com/subscribe_embed?usegapi=1&amp;channelid=UCFXk8QukN7_GXBiuHMoXHLw&amp;layout=full&amp;count=hidden&amp;origin=https%3A%2F%2Fgoogle-developers.appspot.com&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.q43xuclpDM0.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMvS4QwEHqy5J0_asNhSAZaLNrmHQ#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conytevent&amp;id=I5_1496344564795&amp;parent=https%3A%2F%2Fgoogle-developers.appspot.com&amp;pfname=&amp;rpctoken=23377714"
+              data-gapiattached="true">
+            </iframe>
+          </div>
+        </div>
+
+        <iframe width="100%" height="300" src="https://www.youtube.com/embed/eSqn7yKpIXI" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-xs-12 col-md-6 sblock">
+        <p>
+          I'm not the best graphic designer. Get over it and enjoy.
+        </p>
+
+        <p>
+          <a href="http://{{URL}}/downloadGame" download="MultiGame.jar">Download Game!</a>
+        </p>
+      </div>
+
+      <div class="col-xs-12 col-md-6 sblock">
+
+      </div>
+      <div class="col-xs-12 col-md-6 sblock">
+
+      </div>
+
+      {{> footer }}
+    </div>
+  </div>
+</body>
+</html>
