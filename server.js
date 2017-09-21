@@ -131,9 +131,13 @@ app.post('/gamelogin', function(req, res) {
   var password = req.body.password;
 
   User.findByCredentials(email, password).then(function(user){
-    setTimeout(function(){ res.status(200).send(); }, 2000);
+    setTimeout(function(){
+      res.status(200).send(user.username); 
+    }, 2000);
   }).catch(function(err){
-    setTimeout(function(){ res.status(400).send(); }, 2000);
+    setTimeout(function(){
+      res.status(400).send();
+    }, 2000);
   });
 });
 
